@@ -88,11 +88,12 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build_lib": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp",
     "build.ng": "ng-packagr",
-    "prepare": "npm run build.ng"
+    "prepare": "npm run build_lib"
   }
 }
