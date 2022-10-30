@@ -5,8 +5,8 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable no-underscore-dangle */
 // tslint:disable-next-line:max-line-length
-import { Component, ContentChild, DoCheck, ElementRef, EventEmitter, forwardRef, HostBinding, Input, IterableDiffer, 
-    IterableDiffers, OnInit, Optional, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, DoCheck, ElementRef, EventEmitter, forwardRef, HostBinding, Input,
+    IterableDiffer, IterableDiffers, OnInit, Optional, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonItem, ModalController, Platform } from '@ionic/angular';
 import { AnimationBuilder, ModalOptions } from '@ionic/core';
@@ -1310,6 +1310,14 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._isFooterVisible = !isVisible;
   }
 
+  onButtonFocus() {
+    this._setIonItemCssClass('item-has-focus', true);
+  }
+
+  onButtonBlur() {
+    this._setIonItemCssClass('item-has-focus', false);
+  }
+
   /* ControlValueAccessor */
   writeValue(value: any) {
     this.value = value;
@@ -1573,7 +1581,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       self._isOpened = false;
       self._itemToAdd = null;
       self._modal.dismiss().then(() => {
-        self._setIonItemHasFocus(false);
+       // sjd self._setIonItemHasFocus(false);
         self.hideAddItemTemplate();
         resolve();
       });

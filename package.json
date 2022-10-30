@@ -18,9 +18,8 @@
   },
   "keywords": [
     "ionic",
-    "ionic 2",
-    "ionic 3",
-    "ionic 4",
+    "ionic 5",
+    "ionic 6",
     "ion-select",
     "search",
     "searchable",
@@ -93,6 +92,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp",
-    "build.ng": "ng-packagr"
+    "build.ng": "ng-packagr",
+    "prepare": "npm run build.ng"
   }
 }

@@ -3,5 +3,9 @@
   "lib": {
     "entryFile": "index.ts"
   },
+  "assets": [
+    "../LICENSE",
+    "../README.md"
+  ],
   "allowedNonPeerDependencies": ["cordova-ios", "cordova-android"]
 }
