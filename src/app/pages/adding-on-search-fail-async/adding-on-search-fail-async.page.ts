@@ -39,8 +39,8 @@ export class AddingOnSearchFailAsyncPage implements OnInit {
   }
 
   searchPorts(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     const text = event.text.trim().toLowerCase();
     event.component.startSearch();
@@ -73,8 +73,8 @@ export class AddingOnSearchFailAsyncPage implements OnInit {
   }
 
   onSearchFail(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     if (event.component.hasSearchText) {
       // Clean form.
@@ -91,8 +91,8 @@ export class AddingOnSearchFailAsyncPage implements OnInit {
   }
 
   onSearchSuccess(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     // Hide form.
     event.component.hideAddItemTemplate();

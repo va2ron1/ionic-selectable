@@ -133,11 +133,11 @@ $item-padding-end-ios: 8px;
     /*Occupy 100% of width when there's no label.*/
     max-width: 100%;
     width: 100%;
-    &-value {
-      &-item {
-        text-align: right;
-      }
-    }
+   // &-value {  //sjd
+   //   &-item {
+   //     text-align: right;
+  //    }
+   // }
   }
   &-label-stacked,
   &-label-floating {

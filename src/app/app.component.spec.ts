@@ -6,7 +6,7 @@ import { Platform } from '@ionic/angular';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
+  let statusBarSpy; let splashScreenSpy; let platformReadySpy; let platformSpy;
 
   beforeEach(waitForAsync(() => {
     statusBarSpy = jasmine.createSpyObj('StatusBar', ['styleDefault']);

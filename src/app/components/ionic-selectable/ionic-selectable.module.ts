@@ -37,8 +37,8 @@ export { IonicSelectableValueTemplateDirective } from './ionic-selectable-value-
 export { IonicSelectableIconTemplateDirective } from './ionic-selectable-icon-template.directive';
 export { IonicSelectableComponent } from './ionic-selectable.component';
 
-const components = [IonicSelectableComponent, IonicSelectableModalComponent],
-  directives = [
+const components = [IonicSelectableComponent, IonicSelectableModalComponent];
+  const directives = [
     IonicSelectableValueTemplateDirective,
     IonicSelectableItemTemplateDirective,
     IonicSelectableItemEndTemplateDirective,

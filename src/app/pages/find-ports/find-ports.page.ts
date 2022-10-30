@@ -24,15 +24,13 @@ export class FindPortsPage implements OnInit {
   }
 
   filterPorts(ports: Port[], text: string) {
-    return ports.filter(port => {
-      return port.name.toLowerCase().indexOf(text) !== -1 ||
-        port.country.name.toLowerCase().indexOf(text) !== -1;
-    });
+    return ports.filter(port => port.name.toLowerCase().indexOf(text) !== -1 ||
+        port.country.name.toLowerCase().indexOf(text) !== -1);
   }
 
   searchPorts(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     const text = (event.text || '').trim().toLowerCase();
 
@@ -58,8 +56,8 @@ export class FindPortsPage implements OnInit {
   }
 
   countryChange(event: {
-    component: IonicSelectableComponent,
-    value: any
+    component: IonicSelectableComponent;
+    value: any;
   }) {
     this.port = null;
   }

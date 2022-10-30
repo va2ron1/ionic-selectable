@@ -69,8 +69,8 @@ export class FooterTemplatePage implements OnInit {
   }
 
   onSavePort(event: {
-    component: IonicSelectableComponent,
-    item: Port
+    component: IonicSelectableComponent;
+    item: Port;
   }) {
     // Fill form.
     this.portNameControl.setValue(event.item.name);

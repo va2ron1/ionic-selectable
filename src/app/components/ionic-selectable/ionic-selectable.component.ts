@@ -1,5 +1,12 @@
+/* eslint-disable max-len */
+/* eslint-disable prefer-arrow/prefer-arrow-functions */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @angular-eslint/no-output-on-prefix */
+/* eslint-disable @typescript-eslint/member-ordering */
+/* eslint-disable no-underscore-dangle */
 // tslint:disable-next-line:max-line-length
-import { Component, ContentChild, DoCheck, ElementRef, EventEmitter, forwardRef, HostBinding, Input, IterableDiffer, IterableDiffers, OnInit, Optional, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChild, DoCheck, ElementRef, EventEmitter, forwardRef, HostBinding, Input, IterableDiffer, 
+    IterableDiffers, OnInit, Optional, Output, Renderer2, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonItem, ModalController, Platform } from '@ionic/angular';
 import { AnimationBuilder, ModalOptions } from '@ionic/core';
@@ -287,14 +294,14 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   isConfirmButtonEnabled = true;
 
   /**
- * Determines whether Confirm button is visible for single selection.
- * By default Confirm button is visible only for multiple selection.
- * **Note**: It is always true for multiple selection and cannot be changed.
- * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#hasconfirmbutton).
- *
- * @default true
- * @memberof IonicSelectableComponent
- */
+   * Determines whether Confirm button is visible for single selection.
+   * By default Confirm button is visible only for multiple selection.
+   * **Note**: It is always true for multiple selection and cannot be changed.
+   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#hasconfirmbutton).
+   *
+   * @default true
+   * @memberof IonicSelectableComponent
+   */
   @Input('hasConfirmButton')
   get hasConfirmButton(): boolean {
     return this._hasConfirmButton;
@@ -339,13 +346,13 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   groupValueField: string = null;
 
   /**
-* Group property to display, e.g. `'country.name'`.
-* **Note**: `items` should be an object array.
-* See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#grouptextfield).
-*
-* @default null
-* @memberof IonicSelectableComponent
-*/
+   * Group property to display, e.g. `'country.name'`.
+   * **Note**: `items` should be an object array.
+   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#grouptextfield).
+   *
+   * @default null
+   * @memberof IonicSelectableComponent
+   */
   @Input()
   groupTextField: string = null;
 
@@ -567,7 +574,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onChange: EventEmitter<{ component: IonicSelectableComponent, value: any }> = new EventEmitter();
+  onChange: EventEmitter<{ component: IonicSelectableComponent; value: any }> = new EventEmitter();
 
   /**
    * Fires when the user is typing in Searchbar.
@@ -577,7 +584,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onSearch: EventEmitter<{ component: IonicSelectableComponent, text: string }> = new EventEmitter();
+  onSearch: EventEmitter<{ component: IonicSelectableComponent; text: string }> = new EventEmitter();
 
   /**
    * Fires when no items have been found.
@@ -586,7 +593,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onSearchFail: EventEmitter<{ component: IonicSelectableComponent, text: string }> = new EventEmitter();
+  onSearchFail: EventEmitter<{ component: IonicSelectableComponent; text: string }> = new EventEmitter();
 
   /**
    * Fires when some items have been found.
@@ -595,7 +602,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onSearchSuccess: EventEmitter<{ component: IonicSelectableComponent, text: string }> = new EventEmitter();
+  onSearchSuccess: EventEmitter<{ component: IonicSelectableComponent; text: string }> = new EventEmitter();
 
   /**
    * Fires when the user has scrolled to the end of the list.
@@ -605,7 +612,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onInfiniteScroll: EventEmitter<{ component: IonicSelectableComponent, text: string }> = new EventEmitter();
+  onInfiniteScroll: EventEmitter<{ component: IonicSelectableComponent; text: string }> = new EventEmitter();
 
   /**
    * Fires when Modal has been opened.
@@ -632,7 +639,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onSelect: EventEmitter<{ component: IonicSelectableComponent, item: any, isSelected: boolean }> = new EventEmitter();
+  onSelect: EventEmitter<{ component: IonicSelectableComponent; item: any; isSelected: boolean }> = new EventEmitter();
 
   /**
    * Fires when Clear button has been clicked.
@@ -641,7 +648,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onClear: EventEmitter<{ component: IonicSelectableComponent, items: any[] }> = new EventEmitter();
+  onClear: EventEmitter<{ component: IonicSelectableComponent; items: any[] }> = new EventEmitter();
 
   /**
    * A list of items that are selected and awaiting confirmation by user, when he has clicked Confirm button.
@@ -732,7 +739,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onSaveItem: EventEmitter<{ component: IonicSelectableComponent, item: any }> = new EventEmitter();
+  onSaveItem: EventEmitter<{ component: IonicSelectableComponent; item: any }> = new EventEmitter();
 
   /**
    * Fires when Delete item button has been clicked.
@@ -742,7 +749,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Output()
-  onDeleteItem: EventEmitter<{ component: IonicSelectableComponent, item: any }> = new EventEmitter();
+  onDeleteItem: EventEmitter<{ component: IonicSelectableComponent; item: any }> = new EventEmitter();
 
   /**
    * Fires when Add item button has been clicked.
@@ -794,9 +801,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @memberof IonicSelectableComponent
    */
   @Input()
-  virtualScrollHeaderFn = () => {
-    return null;
-  }
+  virtualScrollHeaderFn = () => null;
 
   constructor(
     private _modalController: ModalController,
@@ -875,15 +880,15 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   _emitOnSelect(item: any, isSelected: boolean) {
     this.onSelect.emit({
       component: this,
-      item: item,
-      isSelected: isSelected
+      item,
+      isSelected
     });
   }
 
   _emitOnClear(items: any[]) {
     this.onClear.emit({
       component: this,
-      items: items
+      items
     });
   }
 
@@ -911,9 +916,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   _formatValueItem(item: any): string {
     if (this._shouldStoreItemValue) {
       // Get item text from the list as we store it's value only.
-      const selectedItem = this.items.find(_item => {
-        return _item[this.itemValueField] === item;
-      });
+      const selectedItem = this.items.find(_item => _item[this.itemValueField] === item);
 
       return this._formatItem(selectedItem);
     } else {
@@ -969,7 +972,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
             groups.push({
               value: group.value,
               text: group.text,
-              items: items
+              items
             });
           }
         });
@@ -993,15 +996,11 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       return;
     }
 
-    return this.disabledItems.some(_item => {
-      return this._getItemValue(_item) === this._getItemValue(item);
-    });
+    return this.disabledItems.some(_item => this._getItemValue(_item) === this._getItemValue(item));
   }
 
   _isItemSelected(item: any) {
-    return this._selectedItems.find(selectedItem => {
-      return this._getItemValue(item) === this._getStoredItemValue(selectedItem);
-    }) !== undefined;
+    return this._selectedItems.find(selectedItem => this._getItemValue(item) === this._getStoredItemValue(selectedItem)) !== undefined;
   }
 
   _addSelectedItem(item: any) {
@@ -1194,9 +1193,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   }
 
   private _areGroupsEmpty(groups) {
-    return groups.length === 0 || groups.every(group => {
-      return !group.items || group.items.length === 0;
-    });
+    return groups.length === 0 || groups.every(group => !group.items || group.items.length === 0);
   }
 
   private _countFooterButtons() {
@@ -1230,8 +1227,8 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
         groups = [];
 
         items.forEach(item => {
-          const groupValue = this._getPropertyValue(item, this.groupValueField),
-            group = groups.find(_group => _group.value === groupValue);
+          const groupValue = this._getPropertyValue(item, this.groupValueField);
+            const group = groups.find(_group => _group.value === groupValue);
 
           if (group) {
             group.items.push(item);
@@ -1256,9 +1253,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       return null;
     }
 
-    return property.split('.').reduce((_object, _property) => {
-      return _object ? _object[_property] : null;
-    }, object);
+    return property.split('.').reduce((_object, _property) => _object ? _object[_property] : null, object);
   }
 
   private _setIonItemHasFocus(hasFocus: boolean) {
@@ -1395,7 +1390,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       this._addItemObservable.unsubscribe();
     }
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>((resolve, reject) => {
       // Complete callback isn't fired for some reason,
       // so unsubscribe in both success and fail cases.
       self._addItemObservable = self.onItemsChange.asObservable().subscribe(() => {
@@ -1409,31 +1404,27 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   }
 
   /**
- * Deletes item.
- * **Note**: If you want an item to be deleted from the original array as well use two-way data binding syntax on `[(items)]` field.
- * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#deleteitem).
- *
- * @param item Item to delete.
- * @returns Promise that resolves when item has been deleted.
- * @memberof IonicSelectableComponent
- */
+   * Deletes item.
+   * **Note**: If you want an item to be deleted from the original array as well use two-way data binding syntax on `[(items)]` field.
+   * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#deleteitem).
+   *
+   * @param item Item to delete.
+   * @returns Promise that resolves when item has been deleted.
+   * @memberof IonicSelectableComponent
+   */
   deleteItem(item: any): Promise<any> {
     const self = this;
     let hasValueChanged = false;
 
     // Remove deleted item from selected items.
     if (this._selectedItems) {
-      this._selectedItems = this._selectedItems.filter(_item => {
-        return this._getItemValue(item) !== this._getStoredItemValue(_item);
-      });
+      this._selectedItems = this._selectedItems.filter(_item => this._getItemValue(item) !== this._getStoredItemValue(_item));
     }
 
     // Remove deleted item from value.
     if (this.value) {
       if (this.isMultiple) {
-        const values = this.value.filter(value => {
-          return value.id !== item.id;
-        });
+        const values = this.value.filter(value => value.id !== item.id);
 
         if (values.length !== this.value.length) {
           this.value = values;
@@ -1452,9 +1443,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     }
 
     // Remove deleted item from list.
-    const items = this.items.filter(_item => {
-      return _item.id !== item.id;
-    });
+    const items = this.items.filter(_item => _item.id !== item.id);
 
     // Refresh items on parent component.
     this.itemsChange.emit(items);
@@ -1471,7 +1460,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       this._deleteItemObservable.unsubscribe();
     }
 
-    return new Promise(function (resolve, reject) {
+    return new Promise<void>(function(resolve, reject) {
       // Complete callback isn't fired for some reason,
       // so unsubscribe in both success and fail cases.
       self._deleteItemObservable = self.onItemsChange.asObservable().subscribe(() => {
@@ -1509,7 +1498,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   open(): Promise<void> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       if (!self._isEnabled || self._isOpened) {
         reject('IonicSelectable is disabled or already opened.');
         return;
@@ -1574,7 +1563,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   close(): Promise<void> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       if (!self._isEnabled || !self._isOpened) {
         reject('IonicSelectable is disabled or already closed.');
         return;
@@ -1628,9 +1617,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   toggleItems(isSelect: boolean, items?: any[]) {
     if (isSelect) {
       const hasItems = items && items.length;
-      let itemsToToggle = this._groups.reduce((allItems, group) => {
-        return allItems.concat(group.items);
-      }, []);
+      let itemsToToggle = this._groups.reduce((allItems, group) => allItems.concat(group.items), []);
 
       // Don't allow to select all items in single mode.
       if (!this.isMultiple && !hasItems) {
@@ -1639,11 +1626,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
       // Toggle specific items.
       if (hasItems) {
-        itemsToToggle = itemsToToggle.filter(itemToToggle => {
-          return items.find(item => {
-            return this._getItemValue(itemToToggle) === this._getItemValue(item);
-          }) !== undefined;
-        });
+        itemsToToggle = itemsToToggle.filter(itemToToggle => items.find(item => this._getItemValue(itemToToggle) === this._getItemValue(item)) !== undefined);
 
         // Take the first item for single mode.
         if (!this.isMultiple) {
@@ -1668,10 +1651,10 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @returns Promise that resolves when scroll has been completed.
    * @memberof IonicSelectableComponent
    */
-  scrollToTop(): Promise<any> {
+  scrollToTop(): Promise<void> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       if (!self._isOpened) {
         reject('IonicSelectable content cannot be scrolled.');
         return;
@@ -1690,10 +1673,10 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
    * @returns Promise that resolves when scroll has been completed.
    * @memberof IonicSelectableComponent
    */
-  scrollToBottom(): Promise<any> {
+  scrollToBottom(): Promise<void> {
     const self = this;
 
-    return new Promise(function (resolve, reject) {
+    return new Promise(function(resolve, reject) {
       if (!self._isOpened) {
         reject('IonicSelectable content cannot be scrolled.');
         return;

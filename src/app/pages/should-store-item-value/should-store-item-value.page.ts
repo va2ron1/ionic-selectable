@@ -22,8 +22,8 @@ export class ShouldStoreItemValuePage implements OnInit {
   }
 
   portChange(event: {
-    component: IonicSelectableComponent,
-    value: any
+    component: IonicSelectableComponent;
+    value: any;
   }) {
     console.log('port:', event.value);
   }

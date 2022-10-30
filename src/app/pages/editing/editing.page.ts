@@ -37,7 +37,7 @@ export class EditingPage implements OnInit {
   }
 
   onAddPort(event: {
-    component: IonicSelectableComponent
+    component: IonicSelectableComponent;
   }) {
     // Clean form.
     this.portNameControl.reset();
@@ -52,8 +52,8 @@ export class EditingPage implements OnInit {
   }
 
   onSavePort(event: {
-    component: IonicSelectableComponent,
-    item: Port
+    component: IonicSelectableComponent;
+    item: Port;
   }) {
     // Fill form.
     this.portNameControl.setValue(event.item.name);
@@ -64,8 +64,8 @@ export class EditingPage implements OnInit {
   }
 
   onDeletePort(event: {
-    component: IonicSelectableComponent,
-    item: Port
+    component: IonicSelectableComponent;
+    item: Port;
   }) {
     // Delete port from storage.
     this.portService.deletePort(event.item);

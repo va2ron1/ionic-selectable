@@ -38,8 +38,8 @@ export class EditingAsyncPage implements OnInit {
   }
 
   searchPorts(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     const text = event.text.trim().toLowerCase();
     event.component.startSearch();
@@ -72,7 +72,7 @@ export class EditingAsyncPage implements OnInit {
   }
 
   onAddPort(event: {
-    component: IonicSelectableComponent
+    component: IonicSelectableComponent;
   }) {
     // Clean form.
     this.portNameControl.reset();
@@ -87,8 +87,8 @@ export class EditingAsyncPage implements OnInit {
   }
 
   onSavePort(event: {
-    component: IonicSelectableComponent,
-    item: Port
+    component: IonicSelectableComponent;
+    item: Port;
   }) {
     // Fill form.
     this.portNameControl.setValue(event.item.name);
@@ -99,8 +99,8 @@ export class EditingAsyncPage implements OnInit {
   }
 
   onDeletePort(event: {
-    component: IonicSelectableComponent,
-    item: Port
+    component: IonicSelectableComponent;
+    item: Port;
   }) {
     // Show loading while port is being added to storage.
     event.component.showLoading();

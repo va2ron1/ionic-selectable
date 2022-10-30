@@ -23,13 +23,11 @@ export class CascadingPage implements OnInit {
   }
 
   countryChange(event: {
-    component: IonicSelectableComponent,
-    value: Country
+    component: IonicSelectableComponent;
+    value: Country;
   }) {
     if (event.value) {
-      this.ports = this.portService.getPorts().filter(port => {
-        return port.country.id === event.value.id;
-      });
+      this.ports = this.portService.getPorts().filter(port => port.country.id === event.value.id);
     } else {
       this.ports = [];
       this.port = null;

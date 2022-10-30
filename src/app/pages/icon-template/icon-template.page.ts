@@ -22,8 +22,8 @@ export class IconTemplatePage implements OnInit {
   }
 
   portChange(event: {
-    component: IonicSelectableComponent,
-    value: any
+    component: IonicSelectableComponent;
+    value: any;
   }) {
     console.log('port:', event.value);
   }

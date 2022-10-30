@@ -24,22 +24,22 @@ export class PrimitiveTypesPage implements OnInit {
   }
 
   portChange(event: {
-    component: IonicSelectableComponent,
-    value: string
+    component: IonicSelectableComponent;
+    value: string;
   }) {
     console.log('port:', event.value);
   }
 
   terminalChange(event: {
-    component: IonicSelectableComponent,
-    value: number
+    component: IonicSelectableComponent;
+    value: number;
   }) {
     console.log('terminal:', event.value);
   }
 
   towageRequiredChange(event: {
-    component: IonicSelectableComponent,
-    value: boolean
+    component: IonicSelectableComponent;
+    value: boolean;
   }) {
     console.log('towageRequired:', event.value);
   }

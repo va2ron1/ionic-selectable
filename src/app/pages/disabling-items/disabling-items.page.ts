@@ -26,15 +26,15 @@ export class DisablingItemsPage implements OnInit {
   }
 
   loadingPortChange(event: {
-    component: IonicSelectableComponent,
-    value: any
+    component: IonicSelectableComponent;
+    value: any;
   }) {
     this.disabledDischargingPorts = this.loadingPorts;
   }
 
   dischargingPortChange(event: {
-    component: IonicSelectableComponent,
-    value: any
+    component: IonicSelectableComponent;
+    value: any;
   }) {
     this.disabledLoadingPorts = this.dischargingPorts;
   }

@@ -304,23 +304,17 @@ export class PortService {
   }
 
   filterPorts(ports: Port[], text: string): Port[] {
-    return ports.filter(port => {
-      return port.name.toLowerCase().indexOf(text) !== -1 ||
-        port.country.name.toLowerCase().indexOf(text) !== -1;
-    });
+    return ports.filter(port => port.name.toLowerCase().indexOf(text) !== -1 ||
+        port.country.name.toLowerCase().indexOf(text) !== -1);
   }
 
   getNewPortId(): number {
-    return this.getPorts().map(port => port.id).sort((portId1, portId2) => {
-      return portId1 > portId2 ? -1 : 1;
-    })[0] + 1;
+    return this.getPorts().map(port => port.id).sort((portId1, portId2) => portId1 > portId2 ? -1 : 1)[0] + 1;
   }
 
   addPort(port: Port) {
     port.id = this.getNewPortId();
-    this.countries.find(country => {
-      return country.id === port.country.id;
-    }).ports.push(port);
+    this.countries.find(country => country.id === port.country.id).ports.push(port);
   }
 
   addPortAsync(port: Port, timeout = 1000): Observable<any> {
@@ -334,14 +328,10 @@ export class PortService {
   }
 
   deletePort(port: Port) {
-    const country = this.countries.find(_country => {
-      return _country.id === port.country.id;
-    });
+    const country = this.countries.find(_country => _country.id === port.country.id);
 
     if (country && country.ports) {
-      country.ports = country.ports.filter(_port => {
-        return _port.id !== port.id;
-      });
+      country.ports = country.ports.filter(_port => _port.id !== port.id);
     }
   }
 
@@ -390,8 +380,8 @@ export class PortService {
       sign = '-';
     }
 
-    const minutes = offset % 60,
-      hours = (offset - minutes) / 60;
+    const minutes = offset % 60;
+      const hours = (offset - minutes) / 60;
 
     return sign + this.formatNumber(hours, 2) + ':' + this.formatNumber(minutes, 2);
   }

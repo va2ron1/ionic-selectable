@@ -37,8 +37,8 @@ export class AddingOnSearchFailPage implements OnInit {
   }
 
   onSearchFail(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     // Clean form.
     this.portNameControl.reset();
@@ -53,8 +53,8 @@ export class AddingOnSearchFailPage implements OnInit {
   }
 
   onSearchSuccess(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     // Hide form.
     event.component.hideAddItemTemplate();

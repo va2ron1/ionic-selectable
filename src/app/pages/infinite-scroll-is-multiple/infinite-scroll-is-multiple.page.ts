@@ -24,15 +24,13 @@ export class InfiniteScrollIsMultiplePage implements OnInit {
   }
 
   filterPorts(ports: Port[], text: string) {
-    return ports.filter(port => {
-      return port.name.toLowerCase().indexOf(text) !== -1 ||
-        port.country.name.toLowerCase().indexOf(text) !== -1;
-    });
+    return ports.filter(port => port.name.toLowerCase().indexOf(text) !== -1 ||
+        port.country.name.toLowerCase().indexOf(text) !== -1);
   }
 
   searchPorts(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     const text = event.text.trim().toLowerCase();
     event.component.startSearch();
@@ -69,8 +67,8 @@ export class InfiniteScrollIsMultiplePage implements OnInit {
   }
 
   getMorePorts(event: {
-    component: IonicSelectableComponent,
-    text: string
+    component: IonicSelectableComponent;
+    text: string;
   }) {
     const text = (event.text || '').trim().toLowerCase();
 
