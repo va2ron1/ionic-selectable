@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { IonicSelectableComponent } from '../../components/ionic-selectable/ionic-selectable.module';
+import { IonicSelectableComponent } from '../../../../projects/ionic-selectable/src/lib/ionic-selectable.module';
 import { PortService } from '../../services';
 import { Country, Port } from '../../types';
 

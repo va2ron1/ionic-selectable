@@ -8,6 +8,11 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "paths": {
+      "ionic-selectable": [
+        "dist/ionic-selectable"
+      ]
+    },
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
@@ -17,7 +22,7 @@
   },
   "include": [
     "src/**/*.ts"
-  ],
+, "projects/ionic-selectable/src/lib/ionic-selectable-add-item-template.directive.ts"  ],
   "exclude": [
     "node_modules",
     "ionic-selectable"

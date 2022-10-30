@@ -30,10 +30,6 @@
   "main": "ionic-selectable.umd.js",
   "module": "ionic-selectable.js",
   "types": "ionic-selectable.d.ts",
-  "peerDependencies": {
-    "@ionic/angular": ">=5.0.0"
-  },
-  "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.0.0",
     "@angular-eslint/builder": "~13.0.1",
@@ -80,7 +76,7 @@
     "protractor": "~7.0.0",
     "rxjs": "~6.6.0",
     "ts-node": "~8.3.0",
-    "tslib": "^2.2.0",
+    "tslib": "^2.3.0",
     "typescript": "~4.7.3",
     "zone.js": "~0.11.4"
   },
@@ -88,12 +84,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build_lib": "ng build",
+    "build_lib": "ng build ionic-selectable",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "gulp": "gulp",
-    "build.ng": "ng-packagr",
+    "npm_pack": "cd dist && npm pack",
+    "package": "npm run build_lib && npm run npm_pack",
+    "publish": "npm run package && cd dist && npm publish",
     "prepare": "npm run build_lib"
   }
 }

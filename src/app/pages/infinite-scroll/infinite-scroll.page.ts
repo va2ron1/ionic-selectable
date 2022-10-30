@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IonicSelectableComponent } from '../../components/ionic-selectable/ionic-selectable.module';
+import { IonicSelectableComponent } from '../../../../projects/ionic-selectable/src/lib/ionic-selectable.module';
 import { PortService } from '../../services';
 import { Port } from '../../types';
 

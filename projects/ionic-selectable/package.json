@@ -1,0 +1,38 @@
+{
+    "version": "4.9.2",
+    "name": "ionic-selectable",
+    "title": "Ionic Selectable",
+    "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",
+    "author": {
+        "name": "Evgenii Koriakin",
+        "url": "https://github.com/eakoriakin"
+    },
+    "license": "See license in LICENSE",
+    "homepage": "https://github.com/eakoriakin/ionic-selectable",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/eakoriakin/ionic-selectable.git"
+    },
+    "bugs": {
+        "url": "https://github.com/eakoriakin/ionic-selectable/issues"
+    },
+    "keywords": [
+        "ionic",
+        "ionic 5",
+        "ionic 6",
+        "ion-select",
+        "search",
+        "searchable",
+        "searchbar",
+        "select",
+        "selectable"
+    ],
+    "main": "ionic-selectable.umd.js",
+    "module": "ionic-selectable.js",
+    "types": "ionic-selectable.d.ts",
+    "peerDependencies": {
+        "@ionic/angular": ">=5.0.0",
+        "@angular/common": "^14.2.0",
+        "@angular/core": "^14.2.0"
+    }
+}

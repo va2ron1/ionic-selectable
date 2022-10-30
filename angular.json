@@ -143,6 +143,37 @@
           }
         }
       }
+    },
+    "ionic-selectable": {
+      "projectType": "library",
+      "root": "projects/ionic-selectable",
+      "sourceRoot": "projects/ionic-selectable/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ionic-selectable/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ionic-selectable/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ionic-selectable/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ionic-selectable/src/test.ts",
+            "tsConfig": "projects/ionic-selectable/tsconfig.spec.json",
+            "karmaConfig": "projects/ionic-selectable/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "cli": {
