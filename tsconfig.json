@@ -1,39 +1,45 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "paths": {
-      "ionic-selectable": [
-        "dist/ionic-selectable"
-      ]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "paths": {
+            "ionic-selectable": [
+                "dist/ionic-selectable"
+            ],
+            "ionic-selectable/*": [
+                "dist/ionic-selectable/*"
+            ]            
+        },
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "es2020",
+        "module": "es2020",
+        "lib": [
+            "es2018",
+            "dom"
+        ],
+        "allowSyntheticDefaultImports": true
     },
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "allowSyntheticDefaultImports": true
-  },
-  "include": [
-    "src/**/*.ts"
-, "projects/ionic-selectable/src/lib/ionic-selectable-add-item-template.directive.ts"  ],
-  "exclude": [
-    "node_modules",
-    "ionic-selectable"
-  ], 
-  "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true,
-    "strictTemplates": true
-  },
-  "atom": {
-    "rewriteTsconfig": false
-  }
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "ionic-selectable"
+    ],
+    "angularCompilerOptions": {
+        "enableI18nLegacyMessageIdFormat": false,
+        "strictInjectionParameters": true,
+        "strictInputAccessModifiers": true,
+        "strictTemplates": true
+    },
+    "atom": {
+        "rewriteTsconfig": false
+    }
 }
