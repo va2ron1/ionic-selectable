@@ -91,7 +91,6 @@
     "gulp": "gulp",
     "npm_pack": "cd dist && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "publish": "npm run package && cd dist && npm publish",
-    "prepare": "npm run build_lib"
+    "publish": "npm run package && cd dist && npm publish"
   }
 }
