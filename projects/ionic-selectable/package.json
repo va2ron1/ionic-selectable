@@ -33,6 +33,7 @@
     "peerDependencies": {
         "@ionic/angular": ">=5.0.0",
         "@angular/common": "^14.2.0",
-        "@angular/core": "^14.2.0"
+        "@angular/core": "^14.2.0",
+        "ng-packagr": "^14.2.1"
     }
 }
