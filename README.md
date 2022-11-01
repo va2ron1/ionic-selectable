@@ -3,6 +3,12 @@
 [dm-image]: https://img.shields.io/npm/dm/ionic-selectable.svg
 [dt-image]: https://img.shields.io/npm/dt/ionic-selectable.svg
 
+## Version 4.9.2, udpates by Steve Drew
+- support ionic 6
+- improved keyboard focus/tabbing
+- support angular 14
+- refactored code into standard projects/ library format.
+  
 # Ionic Selectable v5(alpha) is here
 
 ## `@ionic-selectable/core` for Vanilla JS
