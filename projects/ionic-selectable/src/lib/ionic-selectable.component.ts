@@ -451,6 +451,17 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   placeholder: string = null;
 
   /**
+   * valueMode
+   * Input and Return values not objects. If multiple then array of values of the itemValueField property.
+   * (More like a ion-select component)
+   *
+   * @default false
+   * @memberof IonicSelectableComponent
+   */
+   @Input()
+   valueMode: boolean = false;  
+
+  /**
    * Determines whether multiple items can be selected.
    * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#ismultiple).
    *
@@ -858,11 +869,25 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   }
 
   _emitValueChange() {
-    this.propagateOnChange(this.value);
-
+    let v;
+    // even though using array of objects for list, we have option to return just list of values
+    // similar to an ion-select
+    if (this._hasObjects && this.valueMode) {
+        if (this._isMultiple && this.value && this.value.length > 0) {
+            v = [];
+            for(let p of this.value) {
+                v.push(this._getItemValue(p));
+            }
+        } else {
+            v = this._getItemValue(this.value);
+        }
+    } else {
+        v = this.value;
+    }
+    this.propagateOnChange(v);
     this.onChange.emit({
       component: this,
-      value: this.value
+      value: v
     });
   }
 
@@ -1320,6 +1345,11 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
   /* ControlValueAccessor */
   writeValue(value: any) {
+    // allow being passed a string or number if using itemValue field and find that value in the item list
+    if (value && typeof value != 'object' && this._hasObjects) {
+        let v = this.items.filter((item) => value === item[this.itemValueField]);
+        if (v) value = v[0];
+    }
     this.value = value;
   }
 
