@@ -8,6 +8,8 @@
 - improved keyboard focus/tabbing
 - support angular 14
 - refactored code into standard projects/ library format.
+- fixed ionic classes to properly show valid/invalid values
+- add valueMode setting to allow setting and getting the value even when supplying array of objects.
   
 # Ionic Selectable v5(alpha) is here
 

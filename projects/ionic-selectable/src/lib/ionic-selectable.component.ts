@@ -28,6 +28,8 @@ import { IonicSelectableTitleTemplateDirective } from './ionic-selectable-title-
 import { IonicSelectableValueTemplateDirective } from './ionic-selectable-value-template.directive';
 import { IonicSelectableIconTemplateDirective } from './ionic-selectable-icon-template.directive';
 
+declare const __zone_symbol__requestAnimationFrame: any;
+declare const requestAnimationFrame: any;
 @Component({
   selector: 'ionic-selectable',
   templateUrl: './ionic-selectable.component.html',
@@ -195,6 +197,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
     this._setIonItemHasValue();
     this._setHasPlaceholder();
+    this.setIonicClasses(this._element);
   }
 
   /**
@@ -1334,6 +1337,79 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._isAddItemTemplateVisible = isVisible;
     this._isFooterVisible = !isVisible;
   }
+
+
+    private startsWith = (input: string, search: string): boolean => {
+        return input.substr(0, search.length) === search;
+    };
+
+    private getClasses = (element: HTMLElement) => {
+        const classList = element.classList;
+        const classes = [];
+        for (let i = 0; i < classList.length; i++) {
+            const item = classList.item(i);
+            if (item !== null && this.startsWith(item, 'ng-')) {
+                classes.push(`ion-${item.substr(3)}`);
+            }
+        }
+        return classes;
+    };
+
+    private setClasses = (element: HTMLElement, classes: string[]) => {
+        const classList = element.classList;
+        [
+            'ion-valid',
+            'ion-invalid',
+            'ion-touched',
+            'ion-untouched',
+            'ion-dirty',
+            'ion-pristine',
+        ].forEach((c) => classList.remove(c));
+
+        classes.forEach((c) => classList.add(c));
+    };
+    
+    raf = (h: any) => {
+        if (typeof __zone_symbol__requestAnimationFrame === 'function') {
+            return __zone_symbol__requestAnimationFrame(h);
+        }
+        if (typeof requestAnimationFrame === 'function') {
+            return requestAnimationFrame(h);
+        }
+        return setTimeout(h);
+    };
+
+
+    private setIonicClasses = (element: ElementRef) => {
+        this.raf(() => {
+            const input = element.nativeElement as HTMLElement;
+            const classes = this.getClasses(input);
+            this.setClasses(input, classes);
+
+            const item = input.closest('ion-item');
+            if (item) {
+                this.setClasses(item, classes);
+            }
+        });
+    };
+
+    private setItemClass = (
+        element: ElementRef,
+        className: string,
+        addClass: boolean
+    ) => {
+        const input = element.nativeElement as HTMLElement;
+        const item = input.closest('ion-item');
+        if (item) {
+            const classList = item.classList;
+            if (addClass) {
+                classList.add(className);
+            } else {
+                classList.remove(className);
+            }
+        }
+    };
+
 
   onButtonFocus() {
     this._setIonItemCssClass('item-has-focus', true);
