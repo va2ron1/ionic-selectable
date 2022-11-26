@@ -1064,6 +1064,9 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       this.onOpen.emit({
         component: this
       });
+    }).catch((e) => {
+        // only seems to catch if already opened which can happen on slow network and someone double taps
+        //console.log('caught ',e); //sjd 
     });
   }
 
