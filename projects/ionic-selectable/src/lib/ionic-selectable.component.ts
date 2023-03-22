@@ -956,7 +956,9 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     if (!this._hasObjects) {
       return item;
     }
-
+    if (this.valueMode && item == null) {
+        return null;
+    }
     return item[this.itemValueField];
   }
 
