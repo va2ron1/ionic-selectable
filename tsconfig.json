@@ -2,29 +2,30 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./dist/out-tsc",
-        "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
-        "experimentalDecorators": true,
-        "paths": {
-            "ionic-selectable": [
-                "dist/ionic-selectable"
-            ],
-            "ionic-selectable/*": [
-                "dist/ionic-selectable/*"
-            ]            
-        },
-        "moduleResolution": "node",
-        "importHelpers": true,
-        "target": "es2020",
-        "module": "es2020",
-        "lib": [
-            "es2018",
-            "dom"
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "paths": {
+        "ionic-selectable": [
+          "dist/ionic-selectable"
         ],
-        "allowSyntheticDefaultImports": true
+        "ionic-selectable/*": [
+          "dist/ionic-selectable/*"
+        ]
+      },
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "ES2022",
+      "module": "es2020",
+      "lib": [
+        "es2018",
+        "dom"
+      ],
+      "allowSyntheticDefaultImports": true,
+      "useDefineForClassFields": false
     },
     "include": [
         "src/**/*.ts"
