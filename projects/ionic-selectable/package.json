@@ -18,8 +18,7 @@
     },
     "keywords": [
         "ionic",
-        "ionic 5",
-        "ionic 6",
+        "ionic 7",
         "ion-select",
         "search",
         "searchable",
@@ -31,8 +30,8 @@
     "module": "ionic-selectable.js",
     "types": "ionic-selectable.d.ts",
     "peerDependencies": {
-        "@ionic/angular": ">=6.0.0",
-        "@angular/common": ">=14.0.0",
-        "@angular/core": ">=14.0.0"
+        "@ionic/angular": ">=7.0.0",
+        "@angular/common": ">=16.0.0",
+        "@angular/core": ">=16.0.0"
     }
 }
