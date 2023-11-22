@@ -1221,7 +1221,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._close();
   }
 
-  private _getLabelText(): string {
+  public _getLabelText(): string {
     return this._ionLabelElement ? this._ionLabelElement.textContent : null;
   }
 
