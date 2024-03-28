@@ -744,6 +744,9 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._countFooterButtons();
   }
 
+  @Input()
+  ariaLabel:string;
+
   /**
    * Fires when Edit item button has been clicked.
    * When the button has been clicked `ionicSelectableAddItemTemplate` will be shown. Use the template to create a form to edit item.

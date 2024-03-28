@@ -35,7 +35,7 @@
     <div class="ionic-selectable-icon-inner"></div>
   </div>
   <!-- Need to be type="button" otherwise click event triggers form ngSubmit. -->
-  <button (focus)="onButtonFocus()" (blur)="onButtonBlur()" class="ionic-selectable-cover" [disabled]="!isEnabled" tabindex="0"
+  <button (focus)="onButtonFocus()" (blur)="onButtonBlur()" class="ionic-selectable-cover" [ariaLabel]="ariaLabel" [disabled]="!isEnabled" tabindex="0"
     (click)="_click()" type="button">
   </button>
 </div>
