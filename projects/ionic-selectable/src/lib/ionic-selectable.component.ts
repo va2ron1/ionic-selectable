@@ -729,6 +729,12 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   canDeleteItem = false;
 
   /**
+   * overrides ion-label and preferred for ionic7
+   */
+  @Input()
+  title:string;
+
+  /**
    * Determines whether to allow adding items.
    * See more on [GitHub](https://github.com/eakoriakin/ionic-selectable/wiki/Documentation#canadditem).
    *
@@ -1225,6 +1231,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   }
 
   private _getLabelText(): string {
+    if (this.title) return this.title;
     return this._ionLabelElement ? this._ionLabelElement.textContent : null;
   }
 
