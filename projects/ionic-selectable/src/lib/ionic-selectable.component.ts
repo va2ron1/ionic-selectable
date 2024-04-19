@@ -89,6 +89,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   private _itemsDiffer: IterableDiffer<any>;
   private _hasObjects: boolean;
   private _canClear = false;
+  private _canSelectAll = false;
   private _hasConfirmButton = false;
   private _isMultiple = false;
   private _canAddItem = false;
@@ -400,6 +401,24 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     this._canClear = !!canClear;
     this._countFooterButtons();
   }
+
+ /**
+   * Determines whether to show select all button.
+   *
+   * @default false
+   * @memberof IonicSelectableComponent
+   */
+    @HostBinding('class.ionic-selectable-can-selectall')
+    @Input('canSelectAll')
+    get canSelectAll(): boolean {
+      return this._canSelectAll;
+    }
+    set canSelectAll(canSelectAll: boolean) {
+      this._canSelectAll = !!canSelectAll;
+      this._countFooterButtons();
+    }
+    @Input()
+    selectAllText = 'Select All';
 
   /**
    * Determines whether Ionic [InfiniteScroll](https://ionicframework.com/docs/api/components/infinite-scroll/InfiniteScroll/) is enabled.
@@ -1134,12 +1153,27 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
     }
   }
 
+  _selectAll() {
+
+    if (this.isMultiple && this.items) {
+       this.items.map(item => {
+            this._addSelectedItem(item);
+       });
+       this._setItemsToConfirm(this._selectedItems);
+    }
+  }
+
   _clear() {
     const selectedItems = this._selectedItems;
 
     this.clear();
     this._emitValueChange();
     this._emitOnClear(selectedItems);
+    if (this.isMultiple) {
+        this._selectedItems = [];
+        this._itemsToConfirm = [];
+        return;
+    }    
     this.close().then(() => {
       this.onClose.emit({
         component: this
