@@ -78,7 +78,7 @@
                     [ngTemplateOutletContext]="{ item: item, isItemSelected: selectComponent._isItemSelected(item) }">
                 </span>
                 <ion-icon *ngIf="!selectComponent.itemIconTemplate"
-                    [name]="selectComponent._isItemSelected(item) ? ((selectComponent._isMultipleCssClass) ? 'square-outline' : 'checkmark-circle') : ((selectComponent._isMultipleCssClass) ? 'checkbox' : 'radio-button-off')"
+                    [name]="selectComponent._isItemSelected(item) ? ((selectComponent._isMultipleCssClass) ? 'checkbox' : 'checkmark-circle') : ((selectComponent._isMultipleCssClass) ? 'square-outline' : 'radio-button-off')"
                     [color]="(selectComponent._isItemSelected(item) || selectComponent._isMultipleCssClass) ? 'primary' : null"
                     [slot]="selectComponent.itemIconSlot">
                 </ion-icon>
