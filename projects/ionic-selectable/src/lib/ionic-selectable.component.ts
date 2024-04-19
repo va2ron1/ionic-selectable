@@ -1156,6 +1156,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   _selectAll() {
 
     if (this.isMultiple && this.items) {
+       this._selectedItems = [];
        this.items.map(item => {
             this._addSelectedItem(item);
        });
