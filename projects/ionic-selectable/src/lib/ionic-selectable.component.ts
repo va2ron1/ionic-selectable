@@ -1083,12 +1083,10 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
   _deleteSelectedItem(item: any) {
     let itemToDeleteIndex;
+    const itemValue = this._getItemValue(item);
 
     this._selectedItems.forEach((selectedItem, itemIndex) => {
-      if (
-        this._getItemValue(item) ===
-        this._getStoredItemValue(selectedItem)
-      ) {
+      if (itemValue === (typeof selectedItem === 'object' ? selectedItem[this.itemValueField] : selectedItem )) {
         itemToDeleteIndex = itemIndex;
       }
     });
