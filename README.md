@@ -3,6 +3,10 @@
 [dm-image]: https://img.shields.io/npm/dm/ionic-selectable.svg
 [dt-image]: https://img.shields.io/npm/dt/ionic-selectable.svg
 
+## Version 4.10.4 updates by Doug Kneller
+- revert shouldStoreItemValue change
+- fix code that was not resulting in selected item showing when shouldStoreItemValue was true
+
 ## Version 4.9.2, udpates by Steve Drew
 - support ionic 6
 - improved keyboard focus/tabbing

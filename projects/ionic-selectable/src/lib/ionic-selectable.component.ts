@@ -971,8 +971,11 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
 
   _formatValueItem(item: any): string {
     if (this._shouldStoreItemValue) {
+
+      const compareValue = typeof item === 'object' ? item[this.itemValueField] : item;
+
       // Get item text from the list as we store it's value only.
-      const selectedItem = this.items.find(_item => _item[this.itemValueField] === item);
+      const selectedItem = this.items.find(_item => _item[this.itemValueField] === compareValue);
 
       return this._formatItem(selectedItem);
     } else {
@@ -995,7 +998,7 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
       return item;
     }
 
-    return this._shouldStoreItemValue ? item : item[this.itemValueField];
+    return this._shouldStoreItemValue ? item[this.itemValueField] : item;
   }
 
   _onSearchbarClear() {
@@ -1058,7 +1061,16 @@ export class IonicSelectableComponent implements ControlValueAccessor, OnInit, D
   }
 
   _isItemSelected(item: any) {
-    return this._selectedItems.find(selectedItem => this._getItemValue(item) === this._getStoredItemValue(selectedItem)) !== undefined;
+    // NOTE - selected items can be objects or values, depending on what the item list consists of (objects or values) and whether shouldStoreItemValue and itemValueField is set. 
+
+    // comparison can only be made against scalars so this function has to get appropriate scalars to compare.
+
+    // the value to compare the selected list items against. Gets the item[itemValueField] value (usually id) if item is an object or just the value if item is not an object
+    const itemValue = this._getItemValue(item);
+
+    const result = this._selectedItems.find(selectedItem => itemValue === (typeof selectedItem === 'object' ? selectedItem[this.itemValueField] : selectedItem )) !== undefined;
+
+    return result;
   }
 
   _addSelectedItem(item: any) {
