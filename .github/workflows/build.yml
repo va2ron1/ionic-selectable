@@ -20,19 +20,18 @@ jobs:
         with:
           node-version: 18  # Replace with your Node.js version
 
-      # Step 3: Navigate to the correct directory
-      - name: Change directory to project
-        working-directory: projects/ionic-selectable
-        run: echo "Changed directory to projects/ionic-selectable"
-
-      # Step 4: Install dependencies
+      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
+
+      # Step 4: Run build_lib
+      - name: Run build_lib
+        run: npm run build_lib
 
       # Step 5: Push built files to the `build` branch
       - name: Deploy dist folder
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./dist/ionic-selectable
           publish_branch: build
