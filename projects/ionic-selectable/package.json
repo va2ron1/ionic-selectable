@@ -1,5 +1,5 @@
 {
-    "version": "4.9.4",
+    "version": "4.11.1",
     "name": "ionic-selectable",
     "title": "Ionic Selectable",
     "description": "An Ionic component similar to Ionic Select, that allows to search items, including async search, group, add, edit, delete items, and much more.",
@@ -18,8 +18,7 @@
     },
     "keywords": [
         "ionic",
-        "ionic 5",
-        "ionic 6",
+        "ionic 7",
         "ion-select",
         "search",
         "searchable",
@@ -31,8 +30,11 @@
     "module": "ionic-selectable.js",
     "types": "ionic-selectable.d.ts",
     "peerDependencies": {
-        "@ionic/angular": ">=5.0.0",
-        "@angular/common": ">=11.0.0",
-        "@angular/core": ">=11.0.0"
+        "@ionic/angular": ">=7.0.0",
+        "@angular/common": ">=16.0.0",
+        "@angular/core": ">=16.0.0"
+    },
+    "scripts": {
+        "prepare": "ng-packagr -p ng-package.json"
     }
 }
